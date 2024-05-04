@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // Components
 import Product from "./Product";
+import { useProduct } from "../contexts/ProductContext";
 import { ProductContext } from "../contexts/ProductContext";
 import { useContext } from "react";
 
@@ -21,7 +22,7 @@ const ScProducts = styled.section`
 `;
 
 const Products = (props) => {
-  const { products, addItem } = useContext(ProductContext);
+  const { products, addItem } = useProduct();
   return (
     <ScProducts>
       {products.map((product) => (
