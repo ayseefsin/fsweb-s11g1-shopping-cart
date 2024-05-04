@@ -11,22 +11,20 @@ import ProductContextProvider from "./contexts/ProductContext";
 function App() {
   const [cart, setCart] = useState([]);
   return (
-    <ProductContextProvider>
-      <div className="App">
-        <Navigation cart={cart} />
+    <div className="App">
+      <Navigation cart={cart} />
 
-        {/* Routelar */}
-        <main className="content">
-          <Route exact path="/">
-            <Products />
-          </Route>
+      {/* Routelar */}
+      <main className="content">
+        <Route exact path="/">
+          <Products />
+        </Route>
 
-          <Route path="/cart">
-            <ShoppingCart cart={cart} />
-          </Route>
-        </main>
-      </div>
-    </ProductContextProvider>
+        <Route path="/cart">
+          <ShoppingCart cart={cart} />
+        </Route>
+      </main>
+    </div>
   );
 }
 
