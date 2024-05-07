@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { data } from "../data";
+import { useCart } from "./CartContext";
 
 export const ProductContext = createContext();
 
 export function ProductContextProvider(props) {
+  const { cart, setCart, addToCart } = useCart();
   const [products, setProducts] = useState(data);
   const [apiStatus, setApiStatus] = useState({
     loading: true,
@@ -31,6 +33,7 @@ export function ProductContextProvider(props) {
 
   const addItem = (item) => {
     // verilen itemi sepete ekleyin
+    addToCart(item);
     console.log("add item ", item);
   };
   return (

@@ -1,7 +1,9 @@
 import React from "react";
 import { ScCartItem, ScCartItemDetails } from "./scParts";
+import { useCart } from "../contexts/CartContext";
 
 const Item = (props) => {
+  const { removeFromCart } = useCart();
   return (
     <ScCartItem>
       <img src={props.image} alt={`${props.title} book`} />
@@ -9,7 +11,9 @@ const Item = (props) => {
       <ScCartItemDetails>
         <h2>{props.title}</h2>
         <p>$ {props.price}</p>
-        <button>Remove from cart</button>
+        <button onClick={() => removeFromCart(props.orderInCart)}>
+          Remove from cart
+        </button>
       </ScCartItemDetails>
     </ScCartItem>
   );
