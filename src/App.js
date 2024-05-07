@@ -11,23 +11,21 @@ import { ProductContextProvider } from "./contexts/ProductContext";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const { apiStatus } = useProduct();
 
   return (
     <div className="App">
-      {apiStatus.loading && <p>"Yükleniyor"</p>}
-      {apiStatus.error && <p>{apiStatus.error}</p>}
-      {!apiStatus.loading && !apiStatus.error}
       <Navigation cart={cart} />
       {/* Routelar */}
       <main className="content">
-        <Route exact path="/">
-          <Products />
-        </Route>
+        <>
+          <Route exact path="/">
+            <Products />
+          </Route>
 
-        <Route path="/cart">
-          <ShoppingCart cart={cart} />
-        </Route>
+          <Route path="/cart">
+            <ShoppingCart cart={cart} />
+          </Route>
+        </>
       </main>
     </div>
   );

@@ -12,7 +12,8 @@ export function ProductContextProvider(props) {
   });
   useEffect(() => {
     axios
-      .post("https://reqres.in/api/products", data)
+      .get("https://fakestoreapi.com/products")
+      // .post("https://reqres.in/api/products", data)
       .then((res) => {
         setProducts(res.data);
         setApiStatus({
@@ -34,7 +35,9 @@ export function ProductContextProvider(props) {
   };
   return (
     <ProductContext.Provider value={{ products, addItem, apiStatus }}>
-      {props.children}
+      {apiStatus.loading && <p>"Yükleniyor"</p>}
+      {apiStatus.error && <p>{apiStatus.error}</p>}
+      {!apiStatus.loading && !apiStatus.error && props.children}
     </ProductContext.Provider>
   );
 }
