@@ -10,11 +10,9 @@ import { ProductContext, useProduct } from "./contexts/ProductContext";
 import { ProductContextProvider } from "./contexts/ProductContext";
 
 function App() {
-  const [cart, setCart] = useState([]);
-
   return (
     <div className="App">
-      <Navigation cart={cart} />
+      <Navigation />
       {/* Routelar */}
       <main className="content">
         <>
@@ -23,7 +21,7 @@ function App() {
           </Route>
 
           <Route path="/cart">
-            <ShoppingCart cart={cart} />
+            <ShoppingCart />
           </Route>
         </>
       </main>

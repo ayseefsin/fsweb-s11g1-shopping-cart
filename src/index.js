@@ -6,14 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
 import { ProductContextProvider } from "./contexts/ProductContext";
+import CartContextProvider from "./contexts/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ProductContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ProductContextProvider>
+  <CartContextProvider>
+    <ProductContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProductContextProvider>
+  </CartContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
