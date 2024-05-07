@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
-import ProductContextProvider from "./contexts/ProductContext";
+import { ProductContextProvider } from "./contexts/ProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
