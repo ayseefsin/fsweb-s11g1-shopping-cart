@@ -6,14 +6,7 @@ import Item from "./ShoppingCartItem";
 import { useCart } from "../contexts/CartContext";
 
 const ShoppingCart = (props) => {
-  const { cart } = useCart();
-  const getCartTotal = () => {
-    return cart
-      .reduce((acc, value) => {
-        return acc + value.price;
-      }, 0)
-      .toFixed(2);
-  };
+  const { cart, getCartTotal } = useCart();
 
   return (
     <div>
